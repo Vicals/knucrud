@@ -23,9 +23,20 @@ class OneController < ApplicationController
   end
 
   def destroy
+    @post = One.find(params[:id])
+    @post.destroy
+
+    redirect_to "/one/index"
   end
 
   def update
+    @post = One.find(params[:id])
+    @post.title = params[:title]
+    @post.content = params[:content]
+    @post.category = params[:category]
+    @post.save
+
+    redirect_to "/one/show/#{params[:id]}"
   end
 
   def edit

@@ -1,6 +1,6 @@
 <%= render "one/navbar" %>
     <div class="container">
-        <%= form_tag('/one/create', style: "margin-top:50px;", multipart: true) do %>
+        <%= form_tag("/one/update/#{@post.id}", style: "margin-top:50px;", multipart: true) do %>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">카테고리</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category">
