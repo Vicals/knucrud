@@ -1,0 +1,32 @@
+<%= render "one/navbar" %>
+    <div class="container">
+        <h1 style="margin-top:50px;">
+            <%= @post.title %>
+        </h1>
+        <hr>
+
+        <div style="text-align:right;">
+            <div>
+                <%= @post.created_at.to_s.split("+").first %>
+                    ,
+                    <%= time_ago_in_words(@post.created_at) %> ago
+            </div>
+            <div><%= @post.user.username %></div>
+            <a href="/one/edit/<%= @post.id %>">
+                수정
+            </a>
+            <a href="/one/destory/<%= @post.id %>">
+                삭제
+            </a>
+        </div>
+
+        <h6 style="margin-bottom:200px;">
+            <%= simple_format(@post.content) %>
+        </h6>
+        <hr>
+        <div style="text-align:right;">
+            <a href="/">
+                <button type="button" class="btn btn-dark">목록으로</button>
+            </a>
+        </div>
+    </div>

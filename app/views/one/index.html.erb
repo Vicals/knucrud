@@ -1,0 +1,20 @@
+<%= render "one/navbar" %>
+<div class="container" >
+    <% @post.each do |p| %>
+        <a href="/one/show/<%= p.id %>">
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-top:50px;">
+                <div class="card-header"><%= p.category %></div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= p.title %></h5>
+                    <p class="card-text"><%= p.content %></p>
+                </div>
+            </div>
+        </a>
+    <% end %>
+    
+    <div style="text-align:right;">
+        <a href="/one/new">
+            <button type="button" class="btn btn-dark">글쓰기</button>
+        </a>
+    </div>
+</div>

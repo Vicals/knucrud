@@ -1,0 +1,28 @@
+<%= render "one/navbar" %>
+    <div class="container">
+        <%= form_tag('/one/create', style: "margin-top:50px;", multipart: true) do %>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">카테고리</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="category">
+                    <option value="<%= @post.category %>" selected><%= @post.category%></option>
+                    <option value="이우섭">이우섭</option>
+                    <option value="이준우">이준우</option>
+                    <option value="장준철">장준철</option>
+                    <option value="지정근">지정근</option>
+                    <option value="정원일">정원일</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">제목</label>
+                <%= text_field_tag 'title', @post.title, class: "form-control", placeholder: "제목을 입력하세요." %>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">내용</label>
+                </label>
+                <%= text_area_tag 'content', @post.content, class: "form-control", rows: "10", placeholder: "제목을 입력하세요." %>
+            </div>
+            <div style="text-align:right;">
+                <%= button_tag "작성하기", type: "submit", class: "btn btn-dark" %>
+            </div>
+            <% end %>
+    </div>
