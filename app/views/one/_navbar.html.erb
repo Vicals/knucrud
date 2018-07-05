@@ -1,40 +1,134 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/one/index">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home
-                    <span class="sr-only">(current)</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <a class="navbar-brand" href="/one/index">Navbar</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"-->
+<!--        aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarNavDropdown">-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="#">Home-->
+<!--                    <span class="sr-only">(current)</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">Features</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="#">Pricing</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item dropdown">-->
+<!--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                    Dropdown link-->
+<!--                </a>-->
+<!--                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
     
-    <% if user_signed_in? %>
-        <div><%= current_user.username %></div>님 반갑습니다.
-        <%= link_to "로그아웃", destroy_user_session_path, method: "delete" %>
-    <% else %>
-        <a href="/users/sign_in">로그인</a>
-    <% end %>
     
-</nav>
+    
+    <header>
+              <!-- <h1 " margin-bottom: 0px;">KNU</h1> -->
+              <div style="background: #333333; height:35px;">
+                  <div style = "display: flex;  justify-content: space-between; height: 100%; width:100%;">
+                      
+                        <div class="headerMenu">
+        
+                            <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
+                              <strong style = "vertical-align: middle; font-size:13px; color:white;">ENGLISH</strong>
+                            </div>
+        
+                            <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
+                              <strong style = "vertical-align: middle; font-size:13px; color:white;">CHINES</strong>
+                            </div>
+        
+        
+                            <% if user_signed_in? %>
+                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-basis: 80px; flex-shrink: 0;">
+                                  <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                      <%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>
+                                  </div>
+                                </div>
+                                <% else %>
+                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 80px; flex-shrink: 0;">
+                                  <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                      <a href="/users/sign_in" style= "color:#ffffff">로그인</a>
+                                  </div>
+                                </div>
+                            <% end %>
+        
+                            <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 80px; flex-shrink: 0;">
+                              <div style = "vertical-align: middle; font-size:13px; color:white;">사이트맵</div>
+                            </div>
+        
+                            <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 6px; border-right: 1px solid #484848; flex-shrink: 0;">
+                              <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                  <span class = "SearchBox">
+                                    <!-- <input class = "SearchBoxInput" id="search" style="font-size: 12px;padding: 2px; padding-left: 5px;" placeholder="검색어를 입력하세요." /> -->
+                                    <input type='text' class = "SearchBoxInput" id='search' style="font-size: 12px;padding: 2px; padding-left: 5px;" placeholder="검색어를 입력하세요." onkeyup='{filter();return false}' onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
+        
+                                    <span class = "SearchIcon">
+                                      <i class="fas fa-search" style="cursor:pointer" onclick="search();"></i>
+                                    </span>
+        
+                                  </span>
+                              </div>
+                            </div>
+                            
+                            <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-shrink: 0;">
+                                <div style = "font-size:13px; color:white;">
+                                  <strong>
+                                      <a href="/one/new" style="text-decoration:none; color:white;" onmouseover="style = 'color:#ccc'" onmouseout = "style = 'color:white'">
+                                          글쓰기
+                                      </a>
+                                  </strong>
+                                </div>
+                            </div>
+                            <!---->
+                             
+                            
+                        </div>
+                
+                
+                     <div style = "float:right !important; background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 2px; margin-right: 5%; flex-shrink: 0;">
+                        <div style = "font-size:17px; color:white;">
+                            <% if user_signed_in? %>
+                                <strong>'<%= current_user.username %>'</strong> 님 반갑습니다.
+                                <span style = "margin-right:10px;"></span>
+                                    <!--<button type="button" class="btn btn-outline-secondary btn-sm">-->
+                                        <!--<#%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>-->
+                                    <!--</button>-->
+                            <!--<#% else %>-->
+                            <!--    <button type="button" class="btn btn-outline-secondary btn-sm">-->
+                            <!--        <a href="/users/sign_in" style= "color:#ffffff">로그인</a>-->
+                            <!--    </button>-->
+                            <% end %>
+                        </div>
+                    </div>
+                
+              </div>
+              </div>
+              
+              <div style="background: #da2127; height:60px; padding-left: 105px;">
+                <img src="/assets/knulogo.png"/>
+              </div>
+              
+          </header>
+    
+    
+    
+    <!--<#% if user_signed_in? %>-->
+    <!--    <div><#%= current_user.username %></div>님 반갑습니다.-->
+    <!--    <#%= link_to "로그아웃", destroy_user_session_path, method: "delete" %>-->
+    <!--<#% else %>-->
+    <!--    <a href="/users/sign_in">로그인</a>-->
+    <!--<#% end %>-->
+    
+    
+    
+<!--</nav>-->

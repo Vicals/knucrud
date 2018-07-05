@@ -1,0 +1,71 @@
+  .viewContainer{
+            display: flex;
+            flex-direction: column;
+            /* padding-top: 50px;
+            padding-left: 5%;
+            padding-right: 5%; */
+        }
+        header{
+            /* border-bottom:1px solid gray; */
+            /* padding-left:20px; */
+        }
+        footer{
+            border-top:1px solid gray;
+            padding:20px;
+            text-align: center;
+        }
+        .content{
+            display:flex;
+        }
+        .content nav{
+            /* border-right:1px solid gray; */
+        }
+        .content aside{
+            /* border-left:1px solid gray; */
+        }
+        nav{
+            flex-basis: 200px;
+            flex-shrink: 0;
+        }
+        aside{
+            flex-basis: 150px;
+            flex-shrink: 0;
+        }
+        main{
+            padding:10px;
+        }
+
+        .mainContainer{
+          display:flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        .card{
+          margin: 5px;
+        }
+        #floatMenu {
+        	/* position: absolute; */
+          height: 500px !important;
+        	background-color: #333333;
+        	color: #fff;
+        }
+
+        .headerMenu{
+          display:flex;
+          flex-direction: row;
+          height: 100%;
+          flex-shrink: 0;
+          padding-left: 5%;
+        }
+
+        .SearchBox{
+          position:relative;
+        }
+        .SearchBoxInput{
+          width: 170px;
+          border: 1px solid #ca974a;
+        }
+        .SearchIcon{
+          color: red;
+          position:absolute;top:50%;right:5px;width:20px;height:20px;margin-top:-10px;
+        }

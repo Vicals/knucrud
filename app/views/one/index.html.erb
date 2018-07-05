@@ -1,20 +1,145 @@
 <%= render "one/navbar" %>
-<div class="container" >
-    <% @post.each do |p| %>
-        <a href="/one/show/<%= p.id %>">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-top:50px;">
-                <div class="card-header"><%= p.category %></div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= p.title %></h5>
-                    <p class="card-text"><%= p.content %></p>
-                </div>
-            </div>
-        </a>
-    <% end %>
+<!--<div class="container" >-->
+<!--    <#% @post.each do |p| %>-->
+<!--        <a href="/one/show/<#%= p.id %>">-->
+<!--            <div class="card text-white bg-dark mb-3" style="max-width: 18rem; margin-top:50px;">-->
+<!--                <div class="card-header"><#%= p.category %></div>-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title"><#%= p.title %></h5>-->
+<!--                    <p class="card-text"><#%= p.content %></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    <#% end %>-->
     
-    <div style="text-align:right;">
-        <a href="/one/new">
-            <button type="button" class="btn btn-dark">글쓰기</button>
-        </a>
-    </div>
-</div>
+<!--    <div style="text-align:right;">-->
+<!--        <a href="/one/new">-->
+<!--            <button type="button" class="btn btn-dark">글쓰기</button>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<div class="viewContainer">
+          
+          
+          <section class="content">
+              <nav>
+                  <!-- <ul>
+                      <li>메뉴바 위치</li>
+                  </ul> -->
+                  <div id="floatMenu" style="width:100%;">
+                    <ul style="padding-top: 20px;">
+                        
+                        
+                        <li >소프트웨어</li>
+                        <li>컴퓨터</li>
+                        <li>하드웨어</li>
+                        <li>기계</li>
+                        <li>전기</li>
+                        <li>라이크</li>
+                        <li>소프트웨어</li>
+                    </ul>
+                  </div>
+              </nav>
+              <main>
+
+
+              <div id='languageTBody' class = "mainContainer">
+
+
+                <% @post.each do |p| %>
+                
+                    <div name="'<%= p.title %>' + '<%= p.category %>'"  onclick="location.href='/one/show/<%= p.id %>'" class="card" style="width: 18rem; cursor:pointer;">
+                      <img class="card-img-top" src="http://www.tourpangpang.com/m/img/38.png" alt="Card image cap">
+                      <div name="'<%= p.title %>' + '<%= p.category %>'" class="card-body">
+                        <p class="card-text"><%= p.title %></p>
+                        <p class="card-text"><%= p.category %></p>
+                      </div>
+                    </div>
+
+                    
+                <% end %>
+
+
+              </div>
+              </main>
+
+          </section>
+          <footer>
+              <a href="https://opentutorials.org/course/1">홈페이지</a>
+          </footer>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    
+//   <!-- 플로팅 메뉴 -->
+    $(document).ready(function() {
+
+    	// 기존 css에서 플로팅 배너 위치(top)값을 가져와 저장한다.
+    	// var floatPosition = parseInt($("#floatMenu").css('top'));
+    	// 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
+
+      //플로팅 패널 크기 설정
+      var limit = $(".content").height();
+      // alert(limit);
+
+      $(".content").css('min-height', window.innerHeight + "px");
+
+    	$(window).scroll(function() {
+    		// 현재 스크롤 위치를 가져온다.
+    		var scrollTop = $(window).scrollTop();
+    		// var newPosition = scrollTop + floatPosition + "px";
+        var newPosition = scrollTop-107 + "px";
+
+          //플로팅 메뉴바
+          if(limit > scrollTop + 393){
+            if(scrollTop > 107){
+              // 애니메이션 없이 바로 따라감
+              $("#floatMenu").css('margin-top', newPosition);
+            }else{
+              $("#floatMenu").css('margin-top', "0px");
+            }
+          }else{
+            $("#floatMenu").css('margin-top', limit-500 + "px");
+          }
+
+    		// $("#floatMenu").stop().animate({
+    		// 	"top" : newPosition
+    		// }, 500);
+    	}).scroll();
+
+    });
+    
+    window.onresize = function(event) {
+      $(".content").css('min-height', window.innerHeight + "px");
+    };
+
+    //검색 기능
+    function filter(){
+  		if($('#search').val()=="")
+  			$("#languageTBody div").css('display','');
+  		else{
+  			$("#languageTBody div").css('display','none');
+  			$("#languageTBody div[name*='"+$('#search').val()+"']").css('display','');
+  		}
+  		return false;
+  	}
+
+</script>
