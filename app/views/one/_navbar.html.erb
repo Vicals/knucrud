@@ -34,88 +34,92 @@
     
     <header>
               <!-- <h1 " margin-bottom: 0px;">KNU</h1> -->
-              <div style="background: #333333; height:35px;">
-                  <div style = "display: flex;  justify-content: space-between; height: 100%; width:100%;">
-                      
-                        <div class="headerMenu">
-        
-                            <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
-                              <strong style = "vertical-align: middle; font-size:13px; color:white;">ENGLISH</strong>
-                            </div>
-        
-                            <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
-                              <strong style = "vertical-align: middle; font-size:13px; color:white;">CHINES</strong>
-                            </div>
-        
-        
-                            <% if user_signed_in? %>
-                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-basis: 80px; flex-shrink: 0;">
-                                  <div style = "vertical-align: middle; font-size:13px; color:white;">
-                                      <%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>
-                                  </div>
+              <div style="background: #333333;">
+                  <div class = "container" style="height:35px; padding-left: 0px;  padding-right: 0px;">
+                      <div style = "display: flex;  justify-content: space-between; height: 100%; width:100%;">
+                          
+                            <div class="headerMenu">
+            
+                                <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
+                                  <strong style = "vertical-align: middle; font-size:13px; color:white;">ENGLISH</strong>
                                 </div>
-                                <% else %>
+            
+                                <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
+                                  <strong style = "vertical-align: middle; font-size:13px; color:white;">CHINES</strong>
+                                </div>
+            
+            
+                                <% if user_signed_in? %>
+                                    <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-basis: 80px; flex-shrink: 0;">
+                                      <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                          <%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>
+                                      </div>
+                                    </div>
+                                    <% else %>
+                                    <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 60px; flex-shrink: 0;">
+                                      <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                          <a href="/users/sign_in" style= "color:#ffffff">로그인</a>
+                                      </div>
+                                    </div>
+                                <% end %>
+            
                                 <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 80px; flex-shrink: 0;">
+                                  <div style = "vertical-align: middle; font-size:13px; color:white;">사이트맵</div>
+                                </div>
+            
+                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 6px; border-right: 1px solid #484848; flex-shrink: 0;">
                                   <div style = "vertical-align: middle; font-size:13px; color:white;">
-                                      <a href="/users/sign_in" style= "color:#ffffff">로그인</a>
+                                      <span class = "SearchBox">
+                                        <!-- <input class = "SearchBoxInput" id="search" style="font-size: 12px;padding: 2px; padding-left: 5px;" placeholder="검색어를 입력하세요." /> -->
+                                        <input type='text' class = "SearchBoxInput" id='search' style="font-size: 12px;padding: 2px; padding-left: 5px;" placeholder="검색어를 입력하세요." onkeyup='{filter();return false}' onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
+            
+                                        <span class = "SearchIcon">
+                                          <i class="fas fa-search" style="cursor:pointer" onclick="search();"></i>
+                                        </span>
+            
+                                      </span>
                                   </div>
                                 </div>
-                            <% end %>
-        
-                            <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 80px; flex-shrink: 0;">
-                              <div style = "vertical-align: middle; font-size:13px; color:white;">사이트맵</div>
-                            </div>
-        
-                            <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 6px; border-right: 1px solid #484848; flex-shrink: 0;">
-                              <div style = "vertical-align: middle; font-size:13px; color:white;">
-                                  <span class = "SearchBox">
-                                    <!-- <input class = "SearchBoxInput" id="search" style="font-size: 12px;padding: 2px; padding-left: 5px;" placeholder="검색어를 입력하세요." /> -->
-                                    <input type='text' class = "SearchBoxInput" id='search' style="font-size: 12px;padding: 2px; padding-left: 5px;" placeholder="검색어를 입력하세요." onkeyup='{filter();return false}' onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
-        
-                                    <span class = "SearchIcon">
-                                      <i class="fas fa-search" style="cursor:pointer" onclick="search();"></i>
-                                    </span>
-        
-                                  </span>
-                              </div>
-                            </div>
-                            
-                            <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-shrink: 0;">
-                                <div style = "font-size:13px; color:white;">
-                                  <strong>
-                                      <a href="/one/new" style="text-decoration:none; color:white;" onmouseover="style = 'color:#ccc'" onmouseout = "style = 'color:white'">
-                                          글쓰기
-                                      </a>
-                                  </strong>
+                                
+                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-shrink: 0;">
+                                    <div style = "font-size:13px; color:white;">
+                                      <strong>
+                                          <a href="/one/new" style="text-decoration:none; color:white;" onmouseover="style = 'color:#ccc'" onmouseout = "style = 'color:white'">
+                                              글쓰기
+                                          </a>
+                                      </strong>
+                                    </div>
                                 </div>
+                                <!---->
+                                 
+                                
                             </div>
-                            <!---->
-                             
-                            
+                    
+                    
+                         <div style = "float:right !important; background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 2px; margin-right: 5%; flex-shrink: 0;">
+                            <div style = "font-size:17px; color:white;">
+                                <% if user_signed_in? %>
+                                    <strong>'<%= current_user.username %>'</strong> 님 반갑습니다.
+                                    <span style = "margin-right:10px;"></span>
+                                        <!--<button type="button" class="btn btn-outline-secondary btn-sm">-->
+                                            <!--<#%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>-->
+                                        <!--</button>-->
+                                <!--<#% else %>-->
+                                <!--    <button type="button" class="btn btn-outline-secondary btn-sm">-->
+                                <!--        <a href="/users/sign_in" style= "color:#ffffff">로그인</a>-->
+                                <!--    </button>-->
+                                <% end %>
+                            </div>
                         </div>
-                
-                
-                     <div style = "float:right !important; background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 2px; margin-right: 5%; flex-shrink: 0;">
-                        <div style = "font-size:17px; color:white;">
-                            <% if user_signed_in? %>
-                                <strong>'<%= current_user.username %>'</strong> 님 반갑습니다.
-                                <span style = "margin-right:10px;"></span>
-                                    <!--<button type="button" class="btn btn-outline-secondary btn-sm">-->
-                                        <!--<#%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>-->
-                                    <!--</button>-->
-                            <!--<#% else %>-->
-                            <!--    <button type="button" class="btn btn-outline-secondary btn-sm">-->
-                            <!--        <a href="/users/sign_in" style= "color:#ffffff">로그인</a>-->
-                            <!--    </button>-->
-                            <% end %>
-                        </div>
-                    </div>
-                
-              </div>
-              </div>
+                    
+                  </div>
+                  </div>
+                  </div>
               
-              <div style="background: #da2127; height:60px; padding-left: 105px;">
-                <img src="/assets/knulogo.png"/>
+              <div style="background: #da2127;">
+                  <div class = "container" style="height:60px; padding-left:0px;">
+                    <img src="/assets/knulogo.png"/>
+                  </div>
               </div>
               
           </header>
