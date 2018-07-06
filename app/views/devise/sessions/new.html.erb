@@ -11,9 +11,9 @@
           <section class="content">
               <nav>
                   <div style="text-align: center;  width:100%; height:115px; background:#6D6E71;">
-                      <h2 style = "padding-top: 45px; color:white;">로그인</h2>
+                      <h2 style = "padding-top: 45px; color:white; font-size: 25px;">로그인</h2>
                   </div>
-                  <div style="width:100%; height:35px; background:#da2127; color:white; padding-left: 10px; padding-top:5px;">
+                  <div style="width:100%; height:35px; background:#da2127; color:white; padding-left: 10px; padding-top:5px; font-size:14px;">
                       <strong>로그인</strong>
                   </div>
               </nav>
@@ -25,29 +25,47 @@
                    <hr style="background:#da2127; height:1px;"/>
                    <h5><strong style="color:#da2127">경북대학교 통합로그인</strong></h5>
                    
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    <div class="field">
-                      <%= f.label :email %><br />
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                   <div style = "background:#f4f4f4">
+                   
+                     <div style = "padding: 20px;">
+                       
+                       
+                       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                       
+                       <table style = "display: flex; justify-content: center;">
+                         <tr>
+                           <td>
+                             <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", :style=> "font-size: 12px; width: 300px; height: 33px;", placeholder: "아이디" %>
+                          </td>
+                           <td rowspan="2">
+                             <%= f.submit "로그인",class: "btn btn-danger", :style=> "font-size: 12px; width: 100px; height:70px; margin-left:5px;" %>
+                           </td>
+                         </tr>
+                         <tr>
+                           <td><%= f.password_field :password, class: "form-control", autocomplete: "off", :style=> "font-size: 12px; width: 300px; height: 33px;", placeholder: "비밀번호"  %></td>
+                         </tr>
+                         <tr>
+                           <td>
+                             <% if devise_mapping.rememberable? %>
+                              <%= f.check_box :remember_me %>
+                              <span style = "font-size:12px">아이디/비밀번호 저장</span>
+                             <% end %>
+                          </td>
+                         </tr>
+                       </table>
+                     <% end %>
+                        
+                      
+                          
+                      
                     </div>
                   
-                    <div class="field">
-                      <%= f.label :password %><br />
-                      <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
+                  
+                    <div style = "margin-top:15px; font-size: 11px;"> 
+                      * 아이디, 비밀번호는 <span style="color:#C48B3A !important">통합정보시스템 아이디, 비밀번호와 동일</span>합니다.
                     </div>
-                  
-                    <% if devise_mapping.rememberable? -%>
-                      <div class="field">
-                        <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me %>
-                      </div>
-                    <% end -%>
-                  
-                    <div class="actions">
-                      <%= f.submit "Log in" %>
-                    </div>
-                  <% end %>
-                  
+                  <hr/>
                   <%= render "devise/shared/links" %>
                 
                 </div>

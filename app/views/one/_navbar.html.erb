@@ -40,31 +40,35 @@
                           
                             <div class="headerMenu">
             
-                                <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
-                                  <strong style = "vertical-align: middle; font-size:13px; color:white;">ENGLISH</strong>
-                                </div>
+                                <!--<div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">-->
+                                <!--  <strong style = "vertical-align: middle; font-size:13px; color:white;">ENGLISH</strong>-->
+                                <!--</div>-->
             
-                                <div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">
-                                  <strong style = "vertical-align: middle; font-size:13px; color:white;">CHINES</strong>
-                                </div>
+                                <!--<div style = "background:#c48b3a; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 3px; border-right: 1px solid #ca974a;">-->
+                                <!--  <strong style = "vertical-align: middle; font-size:13px; color:white;">CHINES</strong>-->
+                                <!--</div>-->
             
             
                                 <% if user_signed_in? %>
-                                    <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-basis: 80px; flex-shrink: 0;">
-                                      <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                    <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 10px; border-right: 1px solid #484848; flex-basis: 70px; flex-shrink: 0;">
+                                      <div style = "vertical-align: middle; font-size:11px; color:white;">
                                           <%= link_to "로그아웃", destroy_user_session_path, method: "delete", :style=> 'color:#FFFFFF;' %>
                                       </div>
                                     </div>
                                     <% else %>
-                                    <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 60px; flex-shrink: 0;">
-                                      <div style = "vertical-align: middle; font-size:13px; color:white;">
+                                    <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 10px; border-right: 1px solid #484848;  flex-basis: 55px; flex-shrink: 0;">
+                                      <div style = "vertical-align: middle; font-size:11px; color:white;">
                                           <a href="/users/sign_in" style= "color:#ffffff">로그인</a>
                                       </div>
                                     </div>
                                 <% end %>
             
-                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848;  flex-basis: 80px; flex-shrink: 0;">
-                                  <div style = "vertical-align: middle; font-size:13px; color:white;">사이트맵</div>
+                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 10px; border-right: 1px solid #484848;  flex-basis: 70px; flex-shrink: 0;">
+                                  <div style = "vertical-align: middle; font-size:11px; color:white;">
+                                    <a href = "https://www.knu.ac.kr/wbbs/" style= "color:#ffffff" target = "_blank">
+                                      홈페이지
+                                    </a>
+                                  </div>
                                 </div>
             
                                 <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 6px; border-right: 1px solid #484848; flex-shrink: 0;">
@@ -81,8 +85,8 @@
                                   </div>
                                 </div>
                                 
-                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-right: 1px solid #484848; flex-shrink: 0;">
-                                    <div style = "font-size:13px; color:white;">
+                                <div style = "background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 10px; border-right: 1px solid #484848; flex-shrink: 0;">
+                                    <div style = "font-size:11px; color:white;">
                                       <strong>
                                           <a href="/one/new" style="text-decoration:none; color:white;" onmouseover="style = 'color:#ccc'" onmouseout = "style = 'color:white'">
                                               글쓰기
@@ -96,7 +100,7 @@
                             </div>
                     
                     
-                         <div style = "float:right !important; background:#333333; height: 100%; padding-left: 10px; padding-right: 10px; padding-top: 2px; margin-right: 5%; flex-shrink: 0;">
+                         <div style = "float:right !important; background:#333333; height: 100%; padding-left: 10px; padding-top: 2px; margin-right: 5%; flex-shrink: 0;">
                             <div style = "font-size:17px; color:white;">
                                 <% if user_signed_in? %>
                                     <strong>'<%= current_user.username %>'</strong> 님 반갑습니다.
@@ -118,7 +122,9 @@
               
               <div style="background: #da2127;">
                   <div class = "container" style="height:60px; padding-left:0px;">
-                    <img src="/assets/knulogo.png"/>
+                    <a href = "../">
+                      <img src="/assets/knulogo.png" />
+                    </a>
                   </div>
               </div>
               
