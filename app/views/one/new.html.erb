@@ -16,10 +16,14 @@
             <%= text_field_tag 'title', nil, class: "form-control", placeholder: "제목을 입력하세요." %>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">내용</label></label>
-            <%= text_area_tag 'content', nil, class: "form-control", rows: "10", placeholder: "제목을 입력하세요." %>
+            <label for="exampleFormControlTextarea1">내용</label>
+            <%= text_area_tag 'content', nil, class: "form-control", rows: "10", placeholder: "내용을 입력하세요." %>
+        </div>
+        <div class="form-group">
+            <%= file_field_tag :image %>
         </div>
         <div style="text-align:right;">
+            <%= link_to "취소", one_index_path, class: "btn btn-dark"%>
             <%= button_tag "작성하기", type: "submit", class: "btn btn-dark" %>
         </div>
     <% end %>

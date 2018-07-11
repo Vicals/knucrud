@@ -7,9 +7,7 @@
 
         <div style="text-align:right;">
             <div>
-                <%= @post.created_at.to_s.split("+").first %>
-                    ,
-                    <%= time_ago_in_words(@post.created_at) %> ago
+                <%= @post.created_at.to_s.split("+").first %>, <%= time_ago_in_words(@post.created_at) %> ago
             </div>
             <div><%= @post.user.username %></div>
             <a href="/one/edit/<%= @post.id %>">
@@ -23,6 +21,17 @@
         <h6 style="margin-bottom:200px;">
             <%= simple_format(@post.content) %>
         </h6>
+        <% unless @post.image.nil? %>
+            <% if @post.image.to_s.split(".").last.include? "png" %>
+                <div><%= image_tag @post.image, width: "1000px" %></div>
+            <% elsif @post.image.to_s.split(".").last.include? "jpg" %>
+                <div><%= image_tag @post.image, width: "1000px" %></div>
+            <% elsif @post.image.to_s.split(".").last.include? "jpeg" %>
+                <div><%= image_tag @post.image, width: "1000px" %></div>
+            <% else %>
+                <div><%= link_to "다운로드", @post.image %></div>
+            <% end %>
+        <% end %>
         <hr>
         <div style="text-align:right;">
             <a href="/">
